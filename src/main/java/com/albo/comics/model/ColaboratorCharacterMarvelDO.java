@@ -5,12 +5,19 @@ import javax.persistence.*;
 @Entity
 @Table(name = "colaborator_comics")
 @Cacheable
-public class ColaboratorComicMarvelDO {
+@NamedQuery(name = "editors.findByCharacter", query = "SELECT colab FROM ColaboratorCharacterMarvelDO colab WHERE colab.nameCharacter = :nameCharacter and colab.rolColaborator = 'editor'")
+@NamedQuery(name = "writers.findByCharacter", query = "SELECT colab FROM ColaboratorCharacterMarvelDO colab WHERE colab.nameCharacter = :nameCharacter and colab.rolColaborator = 'writer'")
+@NamedQuery(name = "colorists.findByCharacter", query = "SELECT colab FROM ColaboratorCharacterMarvelDO colab WHERE colab.nameCharacter = :nameCharacter and colab.rolColaborator = 'colorist'")
+public class ColaboratorCharacterMarvelDO {
 
     @Id
     @SequenceGenerator(name = "colcomicSequence", sequenceName = "colaborator_comic_id_seq", allocationSize = 1, initialValue = 10)
     @GeneratedValue(generator = "colcomicSequence")
     private Integer id;
+
+    private Integer idCharacter;
+
+    private String nameCharacter;
 
     private Integer idComic;
 
@@ -20,23 +27,32 @@ public class ColaboratorComicMarvelDO {
 
     private String rolColaborator;
 
-    public ColaboratorComicMarvelDO() {//
+    public ColaboratorCharacterMarvelDO() {//
     }
 
-    public ColaboratorComicMarvelDO(Integer idComic, String nameComic, String nameColaborator, String rolColaborator) {
+    public ColaboratorCharacterMarvelDO(Integer idCharacter, String nameCharacter, Integer idComic, String nameComic, String nameColaborator, String rolColaborator) {
+        this.setIdCharacter(idCharacter);
+        this.setNameCharacter(nameCharacter);
         this.setIdComic(idComic);
         this.setNameComic(nameComic);
         this.setNameColaborator(nameColaborator);
         this.setRolColaborator(rolColaborator);
     }
 
-
-    public Integer getId() {
-        return id;
+    public Integer getIdCharacter() {
+        return idCharacter;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdCharacter(Integer idCharacter) {
+        this.idCharacter = idCharacter;
+    }
+
+    public String getNameCharacter() {
+        return nameCharacter;
+    }
+
+    public void setNameCharacter(String nameCharacter) {
+        this.nameCharacter = nameCharacter;
     }
 
     public Integer getIdComic() {

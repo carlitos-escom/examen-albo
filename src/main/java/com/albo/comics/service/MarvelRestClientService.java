@@ -16,7 +16,6 @@ public interface MarvelRestClientService {
     @Path("/characters")
     @Produces("application/json")
     ResponseMarvel getCharacters(@QueryParam("ts") String ts, @QueryParam("apikey") String apikey, @QueryParam("hash") String hash);
-    //Set<ResponseMarvel> getCharacters(@QueryParam("name") String name, @QueryParam("ts") String ts, @QueryParam("apikey") String apikey, @QueryParam("hash") String hash);
 
     @GET
     @Path("/comics")
