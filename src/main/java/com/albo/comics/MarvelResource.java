@@ -32,8 +32,8 @@ public class MarvelResource {
 
     @GET
     @Path("/colaborators/{nameCharacter}")
-    @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(example = Constantes.responseSuccessColaborator)), description = "Operacion Exitosa " + "200")
-    @APIResponse(responseCode = "200A", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(example = Constantes.responseBadColaborator)), description = "Operacion Incorrecta " + "200A")
+    @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(example = Constantes.RESPONSE_SUCCESS_COLABORATOR)), description = "Operacion Exitosa " + "200")
+    @APIResponse(responseCode = "200A", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(example = Constantes.RESPONSE_BAD_COLABORATOR)), description = "Operacion Incorrecta " + "200A")
     @Operation(summary = "Servicio para obtener los colaborators", description = "Este servicio convierte la información")
     public Response getColaborators(@PathParam String nameCharacter) {
         LOG.info("getColaborators nameCharacter: " + nameCharacter);
@@ -50,8 +50,8 @@ public class MarvelResource {
 
     @GET
     @Path("/characters/{nameCharacter}")
-    @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(example = Constantes.responseSuccessCharacter)), description = "Operacion Exitosa " + "200")
-    @APIResponse(responseCode = "200A", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(example = Constantes.responseBadCharacter)), description = "Operacion Incorrecta " + "200A")
+    @APIResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(example = Constantes.RESPONSE_SUCCESS_CHARACTER)), description = "Operacion Exitosa " + "200")
+    @APIResponse(responseCode = "200A", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(example = Constantes.RESPONSE_BAD_CHARACTER)), description = "Operacion Incorrecta " + "200A")
     @Operation(summary = "Servicio para obtener los herores que nuestro personaje interactua", description = "Este servicio convierte la información")
     public Response getCharacters(@PathParam String nameCharacter) {
         LOG.info("getCharacters nameCharacter: " + nameCharacter);
